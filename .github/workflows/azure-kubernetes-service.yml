@@ -64,8 +64,9 @@ jobs:
 
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
+        with:
+          working-directory: "/usr/bin/git config --global --add safe.directory /home/runner/work/test-web-application/test-web-application"
         run: |
-          /usr/bin/git config --global --add safe.directory /home/runner/work/test-web-application/test-web-application
           az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
 
 #  deploy:
