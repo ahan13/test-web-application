@@ -50,6 +50,10 @@ jobs:
     steps:
       # Checks out the repository this file is in
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          ls
 
       # Logs in with your Azure credentials
       - name: Azure login
