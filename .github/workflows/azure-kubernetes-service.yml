@@ -66,6 +66,7 @@ jobs:
       - name: Build and push image to ACR
         run: |
           docker build .
+          docker tag test-web-application ahtestcr.azurecr.io/test-web-application:latest
           docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/test-web-application
 
 #  deploy:
